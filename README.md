@@ -127,3 +127,15 @@ binary_sensor:
     unit_of_measurement: "%"
     icon: "mdi:percent"
 ```
+
+## 5. HTTP or RTSP camera
+#### I am using a ESPCAM to stream RTSP, in ```configuration.yaml``` add this section:
+
+```
+camera:
+  - platform: ffmpeg
+    name: Camera
+    input: rtsp://<ESPCAM_IP>:8554/mjpeg/1
+```
+
+Restart and add a Picture Glance in Overview, select the camera entity ```Camera```
