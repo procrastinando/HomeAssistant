@@ -1,12 +1,12 @@
 # HomeAssistant
-A compilation of the sensors in my home assistant using ESPhome
+#### A compilation of the sensors in my home assistant using ESPhome
 
 ## 1. Temperature and Humidity sensor for the room
-Using an AHT10 sensor on a D1 mini.
+#### Using an AHT10 sensor on a D1 mini.
 
-<img width="400" src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/room.JPG">
-```
-i2c:
+<p align="center"><img src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/room.JPG" width="400"></p>
+
+```i2c:
   id: bus_a
   sda: D2
   scl: D1
@@ -25,11 +25,11 @@ sensor:
       name: "Room Humidity"
 ```
 
-Using an DHT11 sensor and an ESP01, using a 0.75 lambda to calibrate the temperature.
+#### Using an DHT11 sensor and an ESP01, using a 0.75 lambda to calibrate the temperature.
 
-<img width="400" src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/room2.jpg">
-```
-sensor:
+<p align="center"><img src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/room2.jpg" width="400"></p>
+
+```sensor:
   - platform: dht
     pin: GPIO2
     model: DHT11
@@ -44,11 +44,11 @@ sensor:
 ```
 
 ## 2. Temperature, Humidity and Smoke sensor for the kitchen
-Using a DHT11 and MQ2 sensors on a D1 mini.
+#### Using a DHT11 and MQ2 sensors on a D1 mini.
 
-<img width="400" src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/kitchen.JPG">
-```
-sensor:
+<p align="center"><img src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/kitchen.JPG" width="400"></p>
+
+```sensor:
   - platform: dht
     pin: D1
     update_interval: 30s
@@ -70,11 +70,11 @@ sensor:
 ```
 
 ## 3. RGB, LDR and motion sensor
-A ESP8266 Witty Cloud has RGB and LDR integrated, while the motion sensor used is a HC-SR501.
+#### A ESP8266 Witty Cloud has RGB and LDR integrated, while the motion sensor used is a HC-SR501.
 
-<img width="400" src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/light.jpg">
-```
-# RGB
+<p align="center"><img src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/light.jpg" width="400"></p>
+
+```# RGB
 light:
   - platform: rgb
     name: "Light sensor"
@@ -113,11 +113,11 @@ binary_sensor:
 ```
 
 ## 4. Moisture sensor for the plants
-I still have one problem calibrating this sensor, besides, is not corrosion proof so I would not recommend it.
+#### I still have one problem calibrating this sensor, besides, is not corrosion proof so I would not recommend it.
 
-<img width="400" src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/moisture.jpg">
-```
-sensor:
+<p align="center"><img src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/moisture.jpg" width="400"></p>
+
+```sensor:
   - platform: adc
     pin: A0
     name: "Banana moisture Sensor"
