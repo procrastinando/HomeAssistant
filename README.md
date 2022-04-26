@@ -2,11 +2,8 @@
 A compilation of the sensors in my home assistant using ESPhome
 
 ## 1. Temperature and Humidity sensor for the room
-
-<img width="400" src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/room.JPG">
-
 Using an AHT10 sensor on a D1 mini:
-
+<img width="400" src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/room.JPG">
 ```
 i2c:
   id: bus_a
@@ -27,10 +24,8 @@ sensor:
       name: "Room Humidity"
 ```
 
-<img width="400" src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/room2.jpg">
-
 Using an DHT11 sensor and an ESP01, using a 0.75 lambda to calibrate the temperature:
-
+<img width="400" src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/room2.jpg">
 ```
 sensor:
   - platform: dht
@@ -47,10 +42,8 @@ sensor:
 ```
 
 ## 2. Temperature, Humidity and Smoke sensor for the kitchen
-<img width="400" src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/kitchen.JPG">
-
 Using a DHT11 and MQ2 sensors on a D1 mini
-
+<img width="400" src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/kitchen.JPG">
 ```
 sensor:
   - platform: dht
@@ -73,4 +66,46 @@ sensor:
     icon: "mdi:percent"
 ```
 
-## 3. 
+## 3. RGB, LDR and motion sensor
+A ESP8266 Witty Cloud has RGB and LDR integrated, while the motion sensor used is a HC-SR501
+<img width="400" src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/light.jpg">
+```
+# RGB
+light:
+  - platform: rgb
+    name: "Light sensor"
+    red: output_component1
+    green: output_component2
+    blue: output_component3
+
+output:
+  - platform: esp8266_pwm
+    id: output_component1
+    pin: GPIO15
+
+  - platform: esp8266_pwm
+    id: output_component2
+    pin: GPIO12
+    
+  - platform: esp8266_pwm
+    id: output_component3
+    pin: GPIO13
+    
+# LDR Light Sensor
+sensor:
+  - platform: adc
+    pin: A0
+    name: "LDR sensor"
+    update_interval: 2s
+    filters:
+      - multiply: 3.3
+
+# Motion sensor
+binary_sensor:
+  - platform: gpio
+    pin: GPIO14
+    name: "PIR sensor"
+    device_class: motion
+```
+
+## 4. Moisture sensor for the plants
