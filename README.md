@@ -2,7 +2,8 @@
 A compilation of the sensors in my home assistant using ESPhome
 
 ## 1. Temperature and Humidity sensor for the room
-Using an AHT10 sensor on a D1 mini:
+Using an AHT10 sensor on a D1 mini.
+
 <img width="400" src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/room.JPG">
 ```
 i2c:
@@ -24,7 +25,8 @@ sensor:
       name: "Room Humidity"
 ```
 
-Using an DHT11 sensor and an ESP01, using a 0.75 lambda to calibrate the temperature:
+Using an DHT11 sensor and an ESP01, using a 0.75 lambda to calibrate the temperature.
+
 <img width="400" src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/room2.jpg">
 ```
 sensor:
@@ -42,7 +44,8 @@ sensor:
 ```
 
 ## 2. Temperature, Humidity and Smoke sensor for the kitchen
-Using a DHT11 and MQ2 sensors on a D1 mini
+Using a DHT11 and MQ2 sensors on a D1 mini.
+
 <img width="400" src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/kitchen.JPG">
 ```
 sensor:
@@ -67,7 +70,8 @@ sensor:
 ```
 
 ## 3. RGB, LDR and motion sensor
-A ESP8266 Witty Cloud has RGB and LDR integrated, while the motion sensor used is a HC-SR501
+A ESP8266 Witty Cloud has RGB and LDR integrated, while the motion sensor used is a HC-SR501.
+
 <img width="400" src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/light.jpg">
 ```
 # RGB
@@ -109,3 +113,17 @@ binary_sensor:
 ```
 
 ## 4. Moisture sensor for the plants
+I still have one problem calibrating this sensor, besides, is not corrosion proof so I would not recommend it.
+
+<img width="400" src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/moisture.jpg">
+```
+sensor:
+  - platform: adc
+    pin: A0
+    name: "Banana moisture Sensor"
+    update_interval: 2s
+    filters:
+      - multiply: 100
+    unit_of_measurement: "%"
+    icon: "mdi:percent"
+```
