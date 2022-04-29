@@ -139,3 +139,5 @@ camera:
 ```
 
 Restart and add a Picture Glance in Overview, select the camera entity ```Camera```
+
+### <a href="https://github.com/procrastinando/ESPCAM-HTTP-RTSP">This repository</a> shows the ESPCAM setup process 
