@@ -6,7 +6,8 @@
 
 <p align="center"><img src="https://raw.githubusercontent.com/procrastinando/HomeAssistant/main/room.JPG" width="400"></p>
 
-```i2c:
+```
+i2c:
   id: bus_a
   sda: D2
   scl: D1
